@@ -1,0 +1,17 @@
+#synthea
+synthea-with-dependencies.jar
+
+# Folders to be ignored
+LatexTests
+output
+
+# Unwanted latex build files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
