@@ -4,6 +4,12 @@ synthea-with-dependencies.jar
 # Folders to be ignored
 LatexTests
 output
+site-packages
+Scripts
+etc
+share
+include
+
 
 # Unwanted latex build files
 *.aux
