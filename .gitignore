@@ -1,6 +1,9 @@
 #synthea
 synthea-with-dependencies.jar
 
+#virtual environment
+venv/
+
 # Folders to be ignored
 LatexTests
 output
