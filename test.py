@@ -1,7 +1,24 @@
-import torch
+import json
+import matplotlib.pyplot as plt
 
-# Check if PyTorch can see your GPU
-print(f"Is CUDA available? {torch.cuda.is_available()}")
-print(f"CUDA device count: {torch.cuda.device_count()}")
-if torch.cuda.is_available():
-    print(f"Current device: {torch.cuda.get_device_name(0)}")
+# Load the JSON file
+with open('test_trajectories.json', 'r') as f:
+    trajectories = json.load(f)
+
+# Plot lactate and actions for each episode
+for ep_idx, traj in enumerate(trajectories):
+    lactate = [state[4] for state in traj['states']]  # Lactate is index 4
+    actions = traj['actions']
+    plt.figure(figsize=(10, 4))
+    plt.subplot(1, 2, 1)
+    plt.plot(lactate, marker='o')
+    plt.title(f'Episode {ep_idx+1} - Lactate')
+    plt.xlabel('Time step')
+    plt.ylabel('Lactate (mmol/L)')
+    plt.subplot(1, 2, 2)
+    plt.plot(actions, marker='x', color='orange')
+    plt.title(f'Episode {ep_idx+1} - Actions')
+    plt.xlabel('Time step')
+    plt.ylabel('Action index')
+    plt.tight_layout()
+    plt.show()
